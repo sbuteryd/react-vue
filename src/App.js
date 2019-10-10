@@ -1,5 +1,5 @@
 import React from 'react';
-import Socks from './components/Socks'
+import SocksList from './components/Socks'
 import blue from './assert/vmSocks-blue-onWhite.jpg'
 import green from './assert/vmSocks-green-onWhite.jpg'
 
@@ -24,20 +24,18 @@ class App extends React.Component{
           variantColor: 'blue'
         }
       ]
-    }
+    },
+    premium:true
   }
-  updateCart= ()=>{
-    this.setState((pre)=>({
-      cart:pre.data.cart+=1
-    }))
-  }
-
   render() {
     return (
         <div>
-          <Socks
+          <SocksList
               product={this.state.data}
-              updateCart={this.updateCart}
+              premium={'premium'}
+          />
+          <SocksList
+              product={this.state.data}
           />
         </div>
     );
