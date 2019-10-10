@@ -2,13 +2,22 @@ import React from 'react'
 import './product_style.css'
 
 export default class Socks extends React.Component{
+    state = {
+        color:'green'
+    }
+    changeImage =(color)=>{
+        this.setState((preCurrent)=>({
+            color:preCurrent.color = color
+        }))
+    }
     render() {
         const {product,blue,green, inStock,variants,details,cart} = this.props.product
         const {updateCart} = this.props
+
         return (
             <div className='product'>
                 <div className='product-image'>
-                    <img src={green} alt=""/>
+                    <img src={this.state.color ==='green' ? green:blue } alt=""/>
                 </div>
                 <div className='product-info'>
                     <h1>{product}</h1>
@@ -20,7 +29,7 @@ export default class Socks extends React.Component{
                     </ul>
                     <ul>
                         {variants.map((variant)=>(
-                            <p key={variant.variantId}>{variant.variantColor}</p>
+                            <p onMouseOver={()=>this.changeImage(variant.variantColor)} key={variant.variantId}>{variant.variantColor}</p>
                         ))}
                     </ul>
                     <button onClick={()=>updateCart()}>
