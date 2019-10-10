@@ -6,11 +6,12 @@ import green from './assert/vmSocks-green-onWhite.jpg'
 
 class App extends React.Component{
   state = {
-    date :{
+    data :{
       product:'Socks',
       blue:blue,
       green:green,
       inStock: true,
+      cart:0,
       details: ['80% cotton', '20% polyester', 'Gender-neutral'],
       variants: [
         {
@@ -24,10 +25,20 @@ class App extends React.Component{
       ]
     }
   }
+  updateCart= (number)=>{
+    console.log(number)
+    this.setState((pre)=>({
+      cart:pre.data.cart+=1
+    }))
+  }
+
   render() {
     return (
         <div>
-          <Socks product={this.state.date} />
+          <Socks
+              product={this.state.data}
+              updateCart={this.updateCart}
+          />
         </div>
     );
   }
