@@ -9,7 +9,19 @@ class App extends React.Component{
     date :{
       product:'Socks',
       blue:blue,
-      green:green
+      green:green,
+      inStock: true,
+      details: ['80% cotton', '20% polyester', 'Gender-neutral'],
+      variants: [
+        {
+          variantId: 2234,
+          variantColor: 'green'
+        },
+        {
+          variantId: 2235,
+          variantColor: 'blue'
+        }
+      ]
     }
   }
   render() {
