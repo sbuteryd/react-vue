@@ -25,8 +25,7 @@ class App extends React.Component{
       ]
     }
   }
-  updateCart= (number)=>{
-    console.log(number)
+  updateCart= ()=>{
     this.setState((pre)=>({
       cart:pre.data.cart+=1
     }))
