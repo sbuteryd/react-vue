@@ -11,7 +11,7 @@ export default class Socks extends React.Component{
         }))
     }
     render() {
-        const {product,blue,green, inStock,variants,details,cart} = this.props.product
+        const {product,blue,green, inStock,variants,details,cart,brand} = this.props.product
         const {updateCart} = this.props
 
         return (
@@ -20,7 +20,7 @@ export default class Socks extends React.Component{
                     <img src={this.state.color ==='green' ? green:blue } alt=""/>
                 </div>
                 <div className='product-info'>
-                    <h1>{product}</h1>
+                    <h1>{`${brand}  ${product}`}</h1>
                     {inStock ? <p>In Stock</p>:<p>Out of Stock</p>}
                     <ul>
                         {details.map((detail,index)=>
