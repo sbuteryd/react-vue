@@ -27,11 +27,11 @@ export default class Socks extends React.Component{
                                 <li key={index}>{detail}</li>
                         )}
                     </ul>
-                    <ul>
+                    <div>
                         {variants.map((variant)=>(
-                            <p onMouseOver={()=>this.changeImage(variant.variantColor)} key={variant.variantId}>{variant.variantColor}</p>
+                            <div className='color-box' style={{background:variant.variantColor}} onMouseOver={()=>this.changeImage(variant.variantColor)} key={variant.variantId}/>
                         ))}
-                    </ul>
+                    </div>
                     <button onClick={()=>updateCart()}>
                         Add to cart
                     </button>
