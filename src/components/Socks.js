@@ -1,22 +1,17 @@
 import React from 'react'
 import './product_style.css'
-import PropTyles  from 'prop-types'
-
 class SocksList extends React.Component{
     state = {
         color:'green',
-        cart:0
+        id:''
     }
-    changeImage =(color)=>{
+    changeImage =(color,id)=>{
         this.setState((preCurrent)=>({
-            color:preCurrent.color = color
+            color:preCurrent.color = color,
+            id:preCurrent.id = id
         }))
     }
-    updateCart= ()=>{
-        this.setState((pre)=>({
-            cart:pre.cart+=1
-        }))
-    }
+
     render() {
         const {product,blue,green, inStock,variants,details,cart,brand} = this.props.product
         return (
@@ -38,17 +33,15 @@ class SocksList extends React.Component{
                             <div className='color-box'
                                  style={{background:variant.variantColor}}
                                  onMouseOver={
-                                     ()=>this.changeImage(variant.variantColor)
+                                     ()=>this.changeImage(variant.variantColor,variant.variantId)
                                  }
                                  key={variant.variantId}
-                            />
+                            >
+                            </div>
                         ))}
-                    </div>
-                    <button onClick={()=>this.updateCart()}>
-                        Add to cart
-                    </button>
-                    <div className='cart'>
-                        <p>Cart({this.state.cart})</p>
+                        <button onClick={()=>this.props.updateCart(this.state.id)}>
+                            Add to cart
+                        </button>
                     </div>
                 </div>
             </div>

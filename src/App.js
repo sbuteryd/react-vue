@@ -12,7 +12,6 @@ class App extends React.Component{
       blue:blue,
       green:green,
       inStock: true,
-      cart:0,
       details: ['80% cotton', '20% polyester', 'Gender-neutral'],
       variants: [
         {
@@ -25,17 +24,29 @@ class App extends React.Component{
         }
       ]
     },
-    premium:true
+    premium:true,
+    cart:[]
+  }
+  updateCart= (variantId)=>{
+    this.setState((pre)=>({
+      cart:pre.cart.concat([variantId])
+    }))
   }
   render() {
+    console.log('render',this.state.cart)
     return (
         <div>
+          <div className='cart'>
+            <p>Cart({this.state.cart.length})</p>
+          </div>
           <SocksList
               product={this.state.data}
               premium={'premium'}
+              updateCart={this.updateCart}
           />
           <SocksList
               product={this.state.data}
+              updateCart={this.updateCart}
           />
         </div>
     );
