@@ -1,7 +1,7 @@
 import  React from 'react'
 class FlavorForm extends React.Component {
     state = {
-        value: '',
+        value: ' ',
         name:'',
         review:'',
         listReview:[],

@@ -14,7 +14,7 @@ class SocksList extends React.Component{
     }
 
     render() {
-        const {product,blue,green, inStock,variants,details,cart,brand} = this.props.product
+        const {product,blue,green, inStock,variants,details,brand} = this.props.product
         return (
             <div className='product'>
                 <div className='product-image'>
@@ -40,7 +40,7 @@ class SocksList extends React.Component{
                             >
                             </div>
                         ))}
-                        <button onClick={()=>this.props.updateCart(this.state.id)}>
+                        <button  disabled={this.state.color ==='blue'} style={{background: this.state.color ==='blue' ? '#f1f1f1':'#1E95EA'}} onClick={()=>this.props.updateCart(this.state.id)}>
                             Add to cart
                         </button>
                     </div>
