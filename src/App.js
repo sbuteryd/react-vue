@@ -44,10 +44,6 @@ class App extends React.Component{
               premium={'premium'}
               updateCart={this.updateCart}
           />
-          <SocksList
-              product={this.state.data}
-              updateCart={this.updateCart}
-          />
         </div>
     );
   }

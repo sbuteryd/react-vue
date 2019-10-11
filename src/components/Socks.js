@@ -1,9 +1,10 @@
 import React from 'react'
 import './product_style.css'
+import FlavorForm from '../components/Productreview'
 class SocksList extends React.Component{
     state = {
         color:'green',
-        id:''
+        id:'',
     }
     changeImage =(color,id)=>{
         this.setState((preCurrent)=>({
@@ -44,6 +45,7 @@ class SocksList extends React.Component{
                         </button>
                     </div>
                 </div>
+                <FlavorForm/>
             </div>
         );
     }
